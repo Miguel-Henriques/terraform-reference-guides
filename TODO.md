@@ -1,0 +1,4 @@
+- Branching strategies
+- State management and directory structure 
+- Continuous Integration
+- Modularization: reusability, versioning and composeability
