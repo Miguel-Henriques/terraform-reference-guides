@@ -1,5 +1,6 @@
+# State management and modularization: How to structure your Terraform projects [WIP]
 
-State management should follow a decentrallized pattern. The benefits obtained with this type of approach are immense: reduced complextity, faster executions, reduced blast radius, easier drift management, isolation between components and teams.
+State management should follow a decentralized pattern. The benefits obtained with this type of approach are immense: reduced complextity, faster executions, reduced blast radius, easier drift management, isolation between components and teams.
 
 ## Workspaces: Yes or No ?
 
