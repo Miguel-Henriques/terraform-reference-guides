@@ -1,8 +1,9 @@
-## Module types and versioning: Modularize your Terraform code [WIP]
+## Module types and versioning: Modularize your Terraform code
 
 Modules are a great way of keeping your code tight, readable and mantainable. They also offer a logical way of keeping up your Terraform code aligned with the application architecture by mirroring its structure. This provides a great reading experience when switching between application and infrastructure code, as for each app codebase there is an infra counterpart that pairs with it.
 
 There are essentially four major types of modules that may have different versioning paths:
+
 - shared modules
 - component modules
 - product modules
@@ -44,6 +45,20 @@ Product modules refer to the stacks that make for the products infrastructure pr
 
 ### Environment modules
 
+Environments are nothing more than product instances. These do not apply to every scenario but rather to multi-tenant distributions with dedicated infrastructure. For multi-tenancy products hosted on shared infrastructure the product module is sufficient as there is no tenant-specific configurations to define.
+
+Environment modules should NOT include any Terraform configuration besides the terraform backend initialization and product configuration.
+
+Example:
+
+├─ environment #1
+│  ├─ main.tf
+│  └─ env.tfvars
+├─ environment #2
+│  ├─ main.tf
+│  └─ env.tfvars
+
+
 ### How to version: Git tags + Semantic Versioning
 
-The actual task of versioning a module follows the same approach of any other git repository. Ideally, version increments are made programmatically alongside the [Semantic Versioning Specification](https://semver.org/).
+The actual task of versioning a module follows the same approach of any other git repository. Ideally, version increments are made programmatically either leveraging your SCM capabilities, as part of your CI pipelines or even relying on less elegant solutions such as traditional bash scripts. You should base your versioning on a well defined open standard such as the [Semantic Versioning Specification](https://semver.org/).
