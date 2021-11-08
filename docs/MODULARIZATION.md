@@ -51,12 +51,34 @@ Environment modules should NOT include any Terraform configuration besides the t
 
 Example:
 
-├─ environment #1
-│  ├─ main.tf
-│  └─ env.tfvars
-├─ environment #2
-│  ├─ main.tf
-│  └─ env.tfvars
+```
+├── environment #1  
+│   ├─ main.tf  
+│   └─ env.tfvars  
+├── environment #2  
+│   ├─ main.tf  
+│   └─ env.tfvars 
+``` 
+
+In some cases it may be advisable to create sub-environments, for example the multiple environment stages of a specific tenant, while retaining tenant-wide variables as such:
+
+```
+├─ environment #1  
+│  ├─ dev  
+│  │  ├─ main.tf  
+│  │  └─ env.tfvars  
+│  ├─ int  
+│  │  ├─ main.tf  
+│  │  └─ env.tfvars  
+│  ├─ prod  
+│  │  ├─ main.tf  
+│  │  └─ env.tfvars  
+│  ├─ main.tf  
+│  └─ global.tfvars
+├─ environment #2  
+│  ├─ main.tf  
+│  └─ env.tfvars  
+```
 
 
 ### How to version: Git tags + Semantic Versioning
