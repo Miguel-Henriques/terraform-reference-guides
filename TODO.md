@@ -1,4 +1,4 @@
-- Branching strategies
-- State management and directory structure
 - Continuous Integration
-- Versioning
+- /scripts
+- /modules
+- updated root README
