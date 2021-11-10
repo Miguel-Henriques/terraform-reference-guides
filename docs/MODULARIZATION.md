@@ -2,12 +2,15 @@
 
 Modules are a great way of keeping your code tight, readable and mantainable. They also offer a logical way of keeping up your Terraform code aligned with the application architecture by mirroring its structure. This provides a great reading experience when switching between application and infrastructure code, as for each app codebase there is an infra counterpart that pairs with it.
 
-There are essentially four major types of modules that may have different versioning paths:
+There are essentially five major types of modules that may have different versioning paths:
 
+- data-only modules
 - shared modules
 - component modules
 - product modules
 - environment/config modules
+
+Despite this, only the first four often get referred as proper Terraform modules as with config modules there's little to no module behavior.
 
 ### Shared modules
 
@@ -43,7 +46,7 @@ Common use cases:
 
 Product modules refer to the stacks that make for the products infrastructure provisioning. They're generally made of a composition of component modules, initialized with the product specific configurations although this is not a strict requirement as in some cases the product isn't split into components, either because it doesn't make sense to do so (rarely) or more commonly during initial development stages for simplicity purposes. As the product grows in complexity it tends to make sense to start spliting things into modules to maintain readibility.
 
-### Environment modules
+### Config/Environment modules
 
 Environments are nothing more than product instances. These do not apply to every scenario but rather to multi-tenant distributions with dedicated infrastructure. For multi-tenancy products hosted on shared infrastructure the product module is sufficient as there is no tenant-specific configurations to define.
 
@@ -80,6 +83,9 @@ In some cases it may be advisable to create sub-environments, for example the mu
 │  └─ env.tfvars  
 ```
 
+### Data-only modules
+
+Data-only modules are a practice incentivized by Hashicorp itself and it's well documented in their [page](https://www.terraform.io/docs/language/modules/develop/composition.html#data-only-modules). They do what the name says and it provides increased code by being able to use dependency inversion.
 
 ### How to version: Git tags + Semantic Versioning
 
