@@ -1,6 +1,8 @@
-# terraform-pocs
-A collection of Terraform Proof of Concepts (PoC) organized in different folders:
+# Terraform Reference Guides
+An ever evolving collection of Terraform best practices based on personal learning experiences and public community resources.
 
-- docs - contains a rich documentation of PoC's, how to's and general Terraform best practices for beginner and advanced users.
-- modules - contains general purpose and PoC-specific Terraform modules
-- scripts - sets of common actions bundled into scripts for simplified use
+The documentation is structured into 3 main folders:
+
+- docs - how to's and general Terraform best practices for beginner and advanced users.
+- modules - general purpose and use case specific Terraform modules
+- scripts - common infra tasks bundled into scripts
